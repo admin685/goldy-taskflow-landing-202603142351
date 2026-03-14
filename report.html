@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TaskFlow Build Report - Complete documentation of the project development process, AI crew members, costs, and deployment details.">
+    <title>Build Report | TaskFlow - Project Management Tool</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Report-specific styles */
+        .report-hero {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+            padding: var(--spacing-3xl) 0;
+            text-align: center;
+            color: var(--text-inverse);
+        }
+
+        .report-hero h1 {
+            font-size: var(--font-size-4xl);
+            font-weight: 800;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .report-hero p {
+            font-size: var(--font-size-lg);
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .report-meta {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-xl);
+            margin-top: var(--spacing-xl);
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            background: rgba(255, 255, 255, 0.15);
+            padding: var(--spacing-sm) var(--spacing-lg);
+            border-radius: var(--radius-full);
+            font-size: var(--font-size-sm);
+        }
+
+        .meta-item svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .report-section {
+            padding: var(--spacing-3xl) 0;
+        }
+
+        .report-section:nth-child(even) {
+            background-color: var(--bg-secondary);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .section-header h2 {
+            font-size: var(--font-size-3xl);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: var(--font-size-lg);
+        }
+
+        /* Files Table */
+        .files-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+
+        .files-table th,
+        .files-table td {
+            padding: var(--spacing-lg);
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .files-table th {
+            background: var(--bg-tertiary);
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: var(--font-size-sm);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .files-table td {
+            color: var(--text-secondary);
+        }
+
+        .files-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .files-table tr:hover td {
+            background: var(--bg-secondary);
+        }
+
+        .file-icon {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        .file-icon svg {
+            width: 20px;
+            height: 20px;
+            color: var(--color-primary);
+        }
+
+        .file-name {
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .file-badge {
+            display: inline-block;
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: var(--radius-sm);
+            font-size: var(--font-size-xs);
+            font-weight: 500;
+        }
+
+        .badge-html { background: #fef3c7; color: #d97706; }
+        .badge-css { background: #dbeafe; color: #2563eb; }
+        .badge-js { background: #fef9c3; color: #ca8a04; }
+        .badge-md { background: #f3e8ff; color: #9333ea; }
+
+        .dark-theme .badge-html { background: rgba(217, 119, 6, 0.2); }
+        .dark-theme .badge-css { background: rgba(37, 99, 235, 0.2); }
+        .dark-theme .badge-js { background: rgba(202, 138, 4, 0.2); }
+        .dark-theme .badge-md { background: rgba(147, 51, 234, 0.2); }
+
+        /* AI Crew Cards */
+        .crew-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-xl);
+        }
+
+        .crew-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-xl);
+            padding: var(--spacing-xl);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+            transition: transform var(--transition-base), box-shadow var(--transition-base);
+        }
+
+        .crew-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .crew-avatar {
+            width: 64px;
+            height: 64px;
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--spacing-lg);
+            font-size: var(--font-size-2xl);
+        }
+
+        .avatar-architect { background: linear-gradient(135deg, #6366f1, #4f46e5); }
+        .avatar-frontend { background: linear-gradient(135deg, #10b981, #059669); }
+        .avatar-designer { background: linear-gradient(135deg, #f59e0b, #d97706); }
+        .avatar-content { background: linear-gradient(135deg, #ec4899, #db2777); }
+        .avatar-qa { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
+
+        .crew-name {
+            font-size: var(--font-size-xl);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .crew-role {
+            color: var(--color-primary);
+            font-size: var(--font-size-sm);
+            font-weight: 500;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .crew-description {
+            color: var(--text-secondary);
+            font-size: var(--font-size-sm);
+            margin-bottom: var(--spacing-lg);
+            line-height: 1.7;
+        }
+
+        .crew-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-md);
+            padding-top: var(--spacing-lg);
+            border-top: 1px solid var(--border-color);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: var(--font-size-xl);
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .stat-label {
+            font-size: var(--font-size-xs);
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Cost Breakdown */
+        .cost-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-xl);
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .cost-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-xl);
+            padding: var(--spacing-xl);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .cost-card.total {
+            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+            color: var(--text-inverse);
+            border: none;
+        }
+
+        .cost-card.total .cost-label,
+        .cost-card.total .cost-value {
+            color: var(--text-inverse);
+        }
+
+        .cost-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-lg);
+            background: var(--bg-tertiary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--spacing-md);
+        }
+
+        .cost-card.total .cost-icon {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .cost-icon svg {
+            width: 24px;
+            height: 24px;
+            color: var(--color-primary);
+        }
+
+        .cost-card.total .cost-icon svg {
+            color: var(--text-inverse);
+        }
+
+        .cost-value {
+            font-size: var(--font-size-3xl);
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .cost-label {
+            color: var(--text-secondary);
+            font-size: var(--font-size-sm);
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            background: var(--bg-card);
+            border-radius: var(--radius-xl);
+            padding: var(--spacing-xl);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .progress-title {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .progress-percentage {
+            font-weight: 700;
+            color: var(--color-primary);
+        }
+
+        .progress-bar {
+            height: 12px;
+            background: var(--bg-tertiary);
+            border-radius: var(--radius-full);
+            overflow: hidden;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+            border-radius: var(--radius-full);
+            transition: width 1s ease-out;
+        }
+
+        .progress-breakdown {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: var(--spacing-md);
+        }
+
+        .breakdown-item {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        .breakdown-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: var(--radius-full);
+        }
+
+        .dot-architect { background: #6366f1; }
+        .dot-frontend { background: #10b981; }
+        .dot-designer { background: #f59e0b; }
+        .dot-content { background: #ec4899; }
+        .dot-qa { background: #8b5cf6; }
+
+        .breakdown-text {
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+        }
+
+        /* Deployment Info */
+        .deploy-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-xl);
+        }
+
+        .deploy-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-xl);
+            padding: var(--spacing-xl);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+        }
+
+        .deploy-header {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .deploy-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .deploy-icon.vercel { background: #000; }
+        .deploy-icon.github { background: #24292e; }
+
+        .dark-theme .deploy-icon.vercel { background: #fff; }
+        .dark-theme .deploy-icon.vercel svg { color: #000; }
+
+        .deploy-icon svg {
+            width: 24px;
+            height: 24px;
+            color: #fff;
+        }
+
+        .deploy-title {
+            font-size: var(--font-size-lg);
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .deploy-subtitle {
+            font-size: var(--font-size-sm);
+            color: var(--text-tertiary);
+        }
+
+        .deploy-url {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            background: var(--bg-tertiary);
+            padding: var(--spacing-md);
+            border-radius: var(--radius-md);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .deploy-url code {
+            flex: 1;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: var(--font-size-sm);
+            color: var(--text-primary);
+            word-break: break-all;
+        }
+
+        .copy-btn {
+            padding: var(--spacing-sm);
+            border-radius: var(--radius-md);
+            background: var(--bg-card);
+            transition: background var(--transition-fast);
+        }
+
+        .copy-btn:hover {
+            background: var(--color-primary);
+            color: var(--text-inverse);
+        }
+
+        .copy-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .deploy-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            color: var(--color-primary);
+            font-weight: 500;
+            font-size: var(--font-size-sm);
+            transition: gap var(--transition-fast);
+        }
+
+        .deploy-link:hover {
+            gap: var(--spacing-md);
+        }
+
+        .deploy-link svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Timeline */
+        .build-timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .build-timeline::before {
+            content: '';
+            position: absolute;
+            left: 24px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border-color);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 72px;
+            padding-bottom: var(--spacing-xl);
+        }
+
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 12px;
+            top: 0;
+            width: 24px;
+            height: 24px;
+            border-radius: var(--radius-full);
+            background: var(--color-primary);
+            border: 4px solid var(--bg-primary);
+            z-index: 1;
+        }
+
+        .timeline-content {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-lg);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+        }
+
+        .timeline-time {
+            font-size: var(--font-size-xs);
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .timeline-title {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .timeline-description {
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+        }
+
+        /* Summary Stats */
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .summary-stat {
+            background: var(--bg-card);
+            border-radius: var(--radius-xl);
+            padding: var(--spacing-xl);
+            text-align: center;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+        }
+
+        .summary-stat-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: var(--radius-lg);
+            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--spacing-md);
+        }
+
+        .summary-stat-icon svg {
+            width: 28px;
+            height: 28px;
+            color: var(--text-inverse);
+        }
+
+        .summary-stat-value {
+            font-size: var(--font-size-3xl);
+            font-weight: 800;
+            color: var(--text-primary);
+            line-height: 1;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .summary-stat-label {
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+        }
+
+        /* Report Footer */
+        .report-footer {
+            background: var(--bg-secondary);
+            padding: var(--spacing-2xl) 0;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .report-footer p {
+            color: var(--text-secondary);
+            font-size: var(--font-size-sm);
+        }
+
+        .report-footer a {
+            color: var(--color-primary);
+            font-weight: 500;
+        }
+
+        .report-footer a:hover {
+            text-decoration: underline;
+        }
+
+        .back-to-site {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            color: var(--color-primary);
+            font-weight: 600;
+            margin-top: var(--spacing-lg);
+            transition: gap var(--transition-fast);
+        }
+
+        .back-to-site:hover {
+            gap: var(--spacing-md);
+        }
+
+        .back-to-site svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .report-hero h1 {
+                font-size: var(--font-size-3xl);
+            }
+
+            .report-meta {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .files-table {
+                display: block;
+                overflow-x: auto;
+            }
+
+            .crew-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .build-timeline::before {
+                left: 16px;
+            }
+
+            .timeline-item {
+                padding-left: 56px;
+            }
+
+            .timeline-dot {
+                left: 4px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <svg class="logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="32" height="32" rx="8" fill="currentColor"/>
+                        <path d="M8 16L13 21L24 10" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="logo-text">TaskFlow</span>
+                </a>
+
+                <ul class="nav-links">
+                    <li><a href="index.html#features" class="nav-link">Features</a></li>
+                    <li><a href="index.html#pricing" class="nav-link">Pricing</a></li>
+                    <li><a href="index.html#testimonials" class="nav-link">Testimonials</a></li>
+                    <li><a href="index.html#faq" class="nav-link">FAQ</a></li>
+                    <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+                    <li><a href="report.html" class="nav-link active">Report</a></li>
+                </ul>
+
+                <div class="nav-actions">
+                    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="5"/>
+                            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                        </svg>
+                        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                        </svg>
+                    </button>
+                    <a href="index.html" class="btn btn-primary">Back to Site</a>
+                </div>
+
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-header">
+            <a href="index.html" class="logo">
+                <svg class="logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="32" height="32" rx="8" fill="currentColor"/>
+                    <path d="M8 16L13 21L24 10" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="logo-text">TaskFlow</span>
+            </a>
+            <button class="mobile-menu-close" id="mobile-menu-close" aria-label="Close menu">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 6L6 18M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+        <nav class="mobile-nav">
+            <a href="index.html" class="mobile-nav-link">Home</a>
+            <a href="index.html#features" class="mobile-nav-link">Features</a>
+            <a href="index.html#pricing" class="mobile-nav-link">Pricing</a>
+            <a href="index.html#testimonials" class="mobile-nav-link">Testimonials</a>
+            <a href="index.html#faq" class="mobile-nav-link">FAQ</a>
+            <a href="index.html#contact" class="mobile-nav-link">Contact</a>
+            <a href="report.html" class="mobile-nav-link active">Report</a>
+        </nav>
+        <div class="mobile-menu-actions">
+            <button class="theme-toggle" id="theme-toggle-mobile" aria-label="Toggle dark mode">
+                <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="5"/>
+                    <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                </svg>
+                <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+                <span>Toggle Theme</span>
+            </button>
+        </div>
+    </div>
+
+    <main>
+        <!-- Report Hero -->
+        <section class="report-hero">
+            <div class="container">
+                <h1>Build Report</h1>
+                <p>Complete documentation of the TaskFlow landing page development process, including AI crew members, token usage, costs, and deployment details.</p>
+                <div class="report-meta">
+                    <div class="meta-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                            <line x1="16" y1="2" x2="16" y2="6"/>
+                            <line x1="8" y1="2" x2="8" y2="6"/>
+                            <line x1="3" y1="10" x2="21" y2="10"/>
+                        </svg>
+                        <span>January 15, 2025</span>
+                    </div>
+                    <div class="meta-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12,6 12,12 16,14"/>
+                        </svg>
+                        <span>Build Time: 47.3 seconds</span>
+                    </div>
+                    <div class="meta-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                            <polyline points="22,4 12,14.01 9,11.01"/>
+                        </svg>
+                        <span>Status: Deployed</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Summary Stats -->
+        <section class="report-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Build Summary</h2>
+                    <p>Key metrics from the TaskFlow landing page generation</p>
+                </div>
+                <div class="summary-grid">
+                    <div class="summary-stat" data-animate>
+                        <div class="summary-stat-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                <polyline points="14,2 14,8 20,8"/>
+                                <line x1="16" y1="13" x2="8" y2="13"/>
+                                <line x1="16" y1="17" x2="8" y2="17"/>
+                                <polyline points="10,9 9,9 8,9"/>
+                            </svg>
+                        </div>
+                        <div class="summary-stat-value counter" data-target="5">0</div>
+                        <div class="summary-stat-label">Files Generated</div>
+                    </div>
+                    <div class="summary-stat" data-animate>
+                        <div class="summary-stat-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0
