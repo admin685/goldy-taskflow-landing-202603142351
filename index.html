@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TaskFlow - The modern project management tool that helps teams collaborate, track progress, and deliver projects on time. Start free today.">
+    <meta name="keywords" content="project management, task management, team collaboration, productivity, agile, kanban, scrum">
+    <meta name="author" content="TaskFlow">
+    <meta property="og:title" content="TaskFlow - Modern Project Management for Modern Teams">
+    <meta property="og:description" content="Streamline your workflow, boost productivity, and deliver projects faster with TaskFlow.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>TaskFlow - Modern Project Management for Modern Teams</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="navbar" id="navbar">
+        <div class="container">
+            <nav class="nav-wrapper">
+                <a href="index.html" class="logo" aria-label="TaskFlow Home">
+                    <img src="https://img.recraft.ai/eAh23gd8R_j1H22i9GkJxsmTo3E725P_toW3k6wjBIQ/rs:fit:1024:1024:0/raw:1/plain/abs://external/images/687bed71-5376-4f44-9d90-43d55a96f2af" alt="Logo" class="navbar-logo" style="height:40px;width:auto;" onerror="this.style.display='none';var f=document.createElement('div');f.style.cssText='width:40px;height:40px;border-radius:50%;background:#D4AF37;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:20px;color:#fff;font-family:sans-serif;flex-shrink:0;';f.textContent='T';this.parentNode.insertBefore(f,this.nextSibling);">
+                </a>
+                
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="#features" class="nav-link">Features</a></li>
+                    <li><a href="#pricing" class="nav-link">Pricing</a></li>
+                    <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+                    <li><a href="#faq" class="nav-link">FAQ</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                    <li><a href="report.html" class="nav-link">Report</a></li>
+                </ul>
+                
+                <div class="nav-actions">
+                    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </button>
+                    <a href="#pricing" class="btn-primary btn-sm">Get Started Free</a>
+                </div>
+                
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-header">
+            <a href="index.html" class="logo">
+                <span class="logo-text">TaskFlow</span>
+            </a>
+            <button class="mobile-menu-close" id="mobile-menu-close" aria-label="Close menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+        <nav class="mobile-nav">
+            <a href="#features" class="mobile-nav-link">Features</a>
+            <a href="#pricing" class="mobile-nav-link">Pricing</a>
+            <a href="#testimonials" class="mobile-nav-link">Testimonials</a>
+            <a href="#faq" class="mobile-nav-link">FAQ</a>
+            <a href="#contact" class="mobile-nav-link">Contact</a>
+            <a href="report.html" class="mobile-nav-link">Report</a>
+        </nav>
+        <div class="mobile-menu-actions">
+            <button class="theme-toggle" id="theme-toggle-mobile" aria-label="Toggle dark mode">
+                <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+                <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+                <span>Toggle Theme</span>
+            </button>
+            <a href="#pricing" class="btn-primary btn-block">Get Started Free</a>
+        </div>
+    </div>
+    
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="hero" style="background-image:url('https://replicate.delivery/xezq/wi70kRx0RHasG9AfPzVozlY1tAnwqr7ruWaV9SrkbVBkKdILA/out-0.webp');background-size:cover;background-position:center;">
+            <div class="hero-background">
+                <div class="hero-gradient"></div>
+                <div class="hero-pattern"></div>
+            </div>
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-badge animate-fade-in">
+                        <span class="badge-icon">🚀</span>
+                        <span>Trusted by 50,000+ teams worldwide</span>
+                    </div>
+                    <h1 class="hero-title animate-fade-in-up">
+                        <span class="title-line">Manage Projects</span>
+                        <span class="title-line title-gradient">Effortlessly</span>
+                    </h1>
+                    <p class="hero-description animate-fade-in-up delay-1">
+                        TaskFlow brings your team together with intuitive task management, real-time collaboration, and powerful automation. Spend less time managing and more time creating.
+                    </p>
+                    <div class="hero-cta animate-fade-in-up delay-2">
+                        <a href="#pricing" class="btn-primary btn-lg">
+                            <span>Start Free Trial</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                        <a href="#features" class="btn-secondary btn-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polygon points="10 8 16 12 10 16 10 8"></polygon>
+                            </svg>
+                            <span>Watch Demo</span>
+                        </a>
+                    </div>
+                    <div class="hero-stats animate-fade-in-up delay-3">
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="50000">0</span>
+                            <span class="stat-label">Active Teams</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="2500000">0</span>
+                            <span class="stat-label">Tasks Completed</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="99">0</span>
+                            <span class="stat-suffix">%</span>
+                            <span class="stat-label">Uptime</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual animate-fade-in-right delay-2">
+                    <div class="dashboard-preview">
+                        <div class="preview-header">
+                            <div class="preview-dots">
+                                <span class="dot red"></span>
+                                <span class="dot yellow"></span>
+                                <span class="dot green"></span>
+                            </div>
+                            <span class="preview-title">TaskFlow Dashboard</span>
+                        </div>
+                        <div class="preview-content">
+                            <div class="preview-sidebar">
+                                <div class="sidebar-item active">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="3" y="3" width="7" height="7"></rect>
+                                        <rect x="14" y="3" width="7" height="7"></rect>
+                                        <rect x="14" y="14" width="7" height="7"></rect>
+                                        <rect x="3" y="14" width="7" height="7"></rect>
+                                    </svg>
+                                    <span>Dashboard</span>
+                                </div>
+                                <div class="sidebar-item">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+                                    </svg>
+                                    <span>Projects</span>
+                                </div>
+                                <div class="sidebar-item">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                        <circle cx="9" cy="7" r="4"></circle>
+                                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                    </svg>
+                                    <span>Team</span>
+                                </div>
+                            </div>
+                            <div class="preview-main">
+                                <div class="kanban-board">
+                                    <div class="kanban-column">
+                                        <div class="column-header">
+                                            <span class="column-title">To Do</span>
+                                            <span class="column-count">4</span>
+                                        </div>
+                                        <div class="task-card">
+                                            <div class="task-tag blue">Design</div>
+                                            <p>Update landing page</p>
+                                            <div class="task-meta">
+                                                <span class="avatar-mini"></span>
+                                                <span>2d</span>
+                                            </div>
+                                        </div>
+                                        <div class="task-card">
+                                            <div class="task-tag purple">Development</div>
+                                            <p>API integration</p>
+                                            <div class="task-meta">
+                                                <span class="avatar-mini"></span>
+                                                <span>5d</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="kanban-column">
+                                        <div class="column-header">
+                                            <span class="column-title">In Progress</span>
+                                            <span class="column-count">3</span>
+                                        </div>
+                                        <div class="task-card highlighted">
+                                            <div class="task-tag green">Marketing</div>
+                                            <p>Launch campaign</p>
+                                            <div class="task-meta">
+                                                <span class="avatar-mini"></span>
+                                                <span>1d</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="kanban-column">
+                                        <div class="column-header">
+                                            <span class="column-title">Done</span>
+                                            <span class="column-count">8</span>
+                                        </div>
+                                        <div class="task-card completed">
+                                            <div class="task-tag">Research</div>
+                                            <p>User interviews</p>
+                                            <div class="task-meta">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="floating-card card-notification animate-float">
+                        <div class="notification-icon success">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                        </div>
+                        <div class="notification-content">
+                            <strong>Task Completed!</strong>
+                            <span>Design review approved</span>
+                        </div>
+                    </div>
+                    <div class="floating-card card-user animate-float-delayed">
+                        <div class="user-avatar">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                        </div>
+                        <div class="user-info">
+                            <strong>Sarah joined</strong>
+                            <span>Marketing Team</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-scroll-indicator">
+                <a href="#features" class="scroll-down" aria-label="Scroll to features">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 5v14"></path>
+                        <path d="M19 12l-7 7-7-7"></path>
+                    </svg>
+                </a>
+            </div>
+        </section>
+        
+        <!-- Features Section -->
+        <section class="features-section" id="features">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Features</span>
+                    <h2 class="section-title">Everything you need to manage projects</h2>
+                    <p class="section-description">Powerful features designed to help your team work smarter, not harder. From planning to delivery, TaskFlow has you covered.</p>
+                </div>
+                <div class="features-grid">
+                    <div class="card feature-card" data-animate="fade-up">
+                        <div class="feature-icon blue">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="3" y1="9" x2="21" y2="9"></line>
+                                <line x1="9" y1="21" x2="9" y2="9"></line>
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">Kanban Boards</h3>
+                        <p class="feature-description">Visualize your workflow with customizable Kanban boards. Drag and drop tasks between columns to track progress at a glance.</p>
+                        <a href="#" class="feature-link">
+                            Learn more
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                    
+                    <div class="card feature-card" data-animate="fade-up" data-delay="100">
+                        <div class="feature-icon purple">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">Team Collaboration</h3>
+                        <p class="feature-description">Work together in real-time with comments, mentions, and file sharing. Keep everyone aligned with instant notifications.</p>
+                        <a href="#" class="feature-link">
+                            Learn more
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                    
+                    <div class="card feature-card" data-animate="fade-up" data-delay="200">
+                        <div class="feature-icon green">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 20V10"></path>
+                                <path d="M18 20V4"></path>
+                                <path d="M6 20v-4"></path>
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">Advanced Analytics</h3>
+                        <p class="feature-description">Make data-driven decisions with detailed reports on team performance, project timelines, and resource allocation.</p>
+                        <a href="#" class="feature-link">
+                            Learn more
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                    
+                    <div class="card feature-card" data-animate="fade-up" data-delay="300">
+                        <div class="feature-icon orange">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">Time Tracking</h3>
+                        <p class="feature-description">Track time spent on tasks with built-in timers and generate accurate timesheets for billing and productivity analysis.</p>
+                        <a href="#" class="feature-link">
+                            Learn more
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                    
+                    <div class="card feature-card" data-animate="fade-up" data-delay="400">
+                        <div class="feature-icon pink">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">Automation</h3>
+                        <p class="feature-description">Automate repetitive tasks with custom rules and workflows. Move tasks, assign team members, and send notifications automatically.</p>
+                        <a href="#" class="feature-link">
+                            Learn more
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                    
+                    <div class="card feature-card" data-animate="fade-up" data-delay="500">
+                        <div class="feature-icon cyan">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                <line x1="8" y1="21" x2="16" y2="21"></line>
+                                <line x1="12" y1="17" x2="12" y2="21"></line>
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">Integrations</h3>
+                        <p class="feature-description">Connect with 100+ tools you already use including Slack, GitHub, Google Drive, Figma, and more for seamless workflows.</p>
+                        <a href="#" class="feature-link">
+                            Learn more
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Pricing Section -->
+        <section class="pricing-section" id="pricing">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Pricing</span>
+                    <h2 class="section-title">Simple, transparent pricing</h2>
+                    <p class="section-description">Choose the plan that works best for your team. All plans include a 14-day free trial with no credit card required.</p>
+                </div>
+                <div class="pricing-toggle">
+                    <span class="toggle-label" data-billing="monthly">Monthly</span>
+                    <button class="billing-toggle" id="billing-toggle" aria-label="Toggle billing period">
+                        <span class="toggle-slider"></span>
+                    </button>
+                    <span class="toggle-label" data-billing="annual">
+                        Annual
+                        <span class="save-badge">Save 20%</span>
+                    </span>
+                </div>
+                <div class="pricing-grid">
+                    <div class="card pricing-card" data-animate="fade-up">
+                        <div class="pricing-header">
+                            <h3 class="pricing-name">Free</h3>
+                            <p class="pricing-description">Perfect for individuals and small projects</p>
+                            <div class="pricing-price">
+                                <span class="currency">$</span>
+                                <span class
