@@ -49,11 +49,16 @@
         }
         
         .hero-visual {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 45%;
+            z-index: 1;
+            opacity: 0.7;
             display: flex;
             justify-content: center;
             align-items: center;
-            position: relative;
-            z-index: 2;
         }
         
         .hero-background {
@@ -122,6 +127,12 @@
             }
             
             .hero-visual {
+                position: relative;
+                right: auto;
+                top: auto;
+                transform: none;
+                width: 100%;
+                opacity: 1;
                 order: 2;
             }
             
@@ -222,14 +233,6 @@
                 </svg>
             </button>
         </div>
-        <nav class="mobile-nav">
-            <a href="#features" class="mobile-nav-link">Features</a>
-            <a href="#pricing" class="mobile-nav-link">Pricing</a>
-            <a href="#testimonials" class="mobile-nav-link">Testimonials</a>
-            <a href="#faq" class="mobile-nav-link">FAQ</a>
-            <a href="#contact" class="mobile-nav-link">Contact</a>
-            <a href="report.html" class="mobile-nav-link">Report</a>
-        </nav>
         <div class="mobile-menu-actions">
             <button class="theme-toggle" id="theme-toggle-mobile" aria-label="Toggle dark mode">
                 <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -518,3 +521,8 @@
                                 <polyline points="12 5 19 12 12 19"></polyline>
                             </svg>
                         </a>
+                    </div>
+                    
+                    <div class="card feature-card" data-animate="fade-up" data-delay="400">
+                        <div class="feature-icon pink">
+                            <svg xmlns="http://www.w3.org/2000
